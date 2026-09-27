@@ -51,8 +51,9 @@
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background: radial-gradient(1200px 600px at 80% -10%, var(--accent-soft), transparent),
-                linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+    background:
+      linear-gradient(180deg, rgba(6,10,20,0.86) 0%, rgba(6,10,20,0.92) 55%, rgba(6,10,20,0.97) 100%),
+      url('assets/campus-bg.jpg') center 30% / cover no-repeat fixed;
     color: var(--text);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.55;
@@ -119,6 +120,38 @@
   }
   .social-btn svg{ width:16px; height:16px; flex-shrink:0; }
 
+  /* Floating "now" card */
+  .now-card{
+    max-width: 440px;
+    margin: 28px auto 0;
+    padding: 18px 20px;
+    text-align: left;
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 18px;
+    box-shadow: 0 24px 50px rgba(0,0,0,0.5), 0 2px 0 rgba(255,255,255,0.05) inset;
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    animation: floaty 5s ease-in-out infinite;
+  }
+  @keyframes floaty{
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+  }
+  .now-card .now-title{
+    display:flex; align-items:center; gap:8px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px;
+  }
+  .now-item{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
+    padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.09);
+  }
+  .now-item:first-child{ border-top:none; padding-top:0; }
+  .now-item .ni-name{ font-weight: 700; font-size: 13.5px; }
+  .now-item .ni-sub{ font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+  .now-item .ni-since{ font-size: 11px; color: var(--accent); white-space:nowrap; font-weight:600; margin-top:2px; }
+
   /* Section cards */
   section{ margin-top: 34px; }
   .section-title{
@@ -132,6 +165,8 @@
   .card{
     background: var(--surface); border:1px solid var(--surface-border);
     border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
   }
   .about p{ color: var(--text-dim); margin:0; font-size: 15px; }
 
@@ -190,7 +225,6 @@
     <h1>Muchamad Aflah</h1>
     <div class="role">Mahasiswa Teknik Sumber Daya Air — Universitas Gadjah Mada</div>
     <div class="location">Yogyakarta, Daerah Istimewa Yogyakarta</div>
-    <div class="badge-now"><span class="dot"></span> Sedang mengerjakan DED Jetty Muara Opak &amp; riset Irigasi Rawa</div>
 
     <div class="socials">
       <a class="social-btn" href="https://www.instagram.com/flah_xe" target="_blank" rel="noopener">
@@ -205,6 +239,24 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
         Email
       </a>
+    </div>
+
+    <div class="now-card">
+      <div class="now-title"><span class="dot"></span> Sedang Dikerjakan</div>
+      <div class="now-item">
+        <div>
+          <div class="ni-name">DED Jetty Muara Opak</div>
+          <div class="ni-sub">Asisten Tenaga Ahli Teknik Sipil Hidro</div>
+        </div>
+        <div class="ni-since">Sejak Sep 2026</div>
+      </div>
+      <div class="now-item">
+        <div>
+          <div class="ni-name">DED Jalan Lintas Selatan Bojonegoro</div>
+          <div class="ni-sub">Pusat Kajian LKFT UGM</div>
+        </div>
+        <div class="ni-since">Sejak Jul 2026</div>
+      </div>
     </div>
   </div>
 
@@ -257,8 +309,8 @@
 
       <div class="timeline-item">
         <div class="ti-head">
-          <div class="ti-title">Asisten Riset Irigasi Rawa<span class="current-tag">Sekarang</span></div>
-          <div class="ti-period">Okt 2025 – Sekarang</div>
+          <div class="ti-title">Asisten Riset Irigasi Rawa</div>
+          <div class="ti-period">Okt 2025 – Des 2025</div>
         </div>
         <div class="ti-sub">Fakultas Teknik UGM</div>
         <ul class="ti-desc">
