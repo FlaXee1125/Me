@@ -44,9 +44,12 @@
   }
   @media (max-width: 640px){
     body{
-      /* Full-bleed: foto tetap zoom ke gedung tengah, tanpa bar gelap
-         di atas/bawah seperti versi 'contain'. */
-      background-position: center, center 22%;
+      /* Foto khusus mobile: crop portrait yang sudah pas menonjolkan atap
+         dan papan nama gedung, jadi full-bleed tanpa perlu zoom paksa. */
+      background-image:
+        linear-gradient(180deg, rgba(22,27,142,0.55) 0%, rgba(10,10,40,0.85) 45%, rgba(6,7,22,0.96) 100%),
+        url('assets/campus-bg-mobile.jpg');
+      background-position: center, center top;
       background-size: cover, cover;
       background-attachment: scroll, scroll;
     }
