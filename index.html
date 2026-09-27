@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muchamad Aflah</title>
+<meta name="description" content="Profil Muchamad Aflah — Mahasiswa Teknik Sumber Daya Air, Universitas Gadjah Mada." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b1220;
+    --bg-alt: #0f1830;
+    --surface: rgba(255,255,255,0.06);
+    --surface-border: rgba(255,255,255,0.10);
+    --text: #eef2ff;
+    --text-dim: #a6b0cc;
+    --accent: #38bdf8;
+    --accent-2: #22d3ee;
+    --accent-soft: rgba(56,189,248,0.14);
+    --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    --radius: 18px;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg: #f5f7fb;
+      --bg-alt: #eef1f8;
+      --surface: #ffffff;
+      --surface-border: #e3e8f2;
+      --text: #101529;
+      --text-dim: #57607a;
+      --accent: #0284c7;
+      --accent-2: #0891b2;
+      --accent-soft: rgba(2,132,199,0.10);
+      --shadow: 0 10px 30px rgba(20,30,60,0.08);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg: #f5f7fb;
+    --bg-alt: #eef1f8;
+    --surface: #ffffff;
+    --surface-border: #e3e8f2;
+    --text: #101529;
+    --text-dim: #57607a;
+    --accent: #0284c7;
+    --accent-2: #0891b2;
+    --accent-soft: rgba(2,132,199,0.10);
+    --shadow: 0 10px 30px rgba(20,30,60,0.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: radial-gradient(1200px 600px at 80% -10%, var(--accent-soft), transparent),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.55;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 20px 80px;
+  }
+  h1,h2,h3{ font-family:'Sora', sans-serif; margin:0; }
+
+  /* Hero */
+  .hero{ text-align:center; margin-bottom: 40px; }
+  .avatar{
+    width: 104px; height: 104px; border-radius: 50%;
+    margin: 0 auto 20px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Sora', sans-serif; font-weight:800; font-size: 34px;
+    color:#00131c;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: var(--shadow);
+  }
+  .hero h1{ font-size: 28px; font-weight: 800; letter-spacing: -0.01em; }
+  .hero .role{
+    color: var(--accent);
+    font-weight: 600; font-size: 15px; margin-top: 6px;
+  }
+  .hero .location{
+    color: var(--text-dim); font-size: 14px; margin-top: 4px;
+  }
+  .badge-now{
+    display:inline-flex; align-items:center; gap:7px;
+    margin-top: 16px; padding: 7px 14px;
+    background: var(--surface); border: 1px solid var(--surface-border);
+    border-radius: 999px; font-size: 13px; color: var(--text-dim);
+  }
+  .dot{
+    width:8px;height:8px;border-radius:50%;
+    background: #34d399; box-shadow: 0 0 0 3px rgba(52,211,153,0.25);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ opacity:1; } 50%{ opacity:0.4; }
+  }
+
+  /* Social links row */
+  .socials{
+    display:flex; justify-content:center; gap:12px; margin-top: 22px; flex-wrap: wrap;
+  }
+  .social-btn{
+    display:flex; align-items:center; gap:8px;
+    padding: 10px 18px;
+    background: var(--surface); border:1px solid var(--surface-border);
+    border-radius: 999px; color: var(--text); text-decoration:none;
+    font-size: 14px; font-weight: 600;
+    transition: transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .social-btn:hover{
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .social-btn svg{ width:16px; height:16px; flex-shrink:0; }
+
+  /* Section cards */
+  section{ margin-top: 34px; }
+  .section-title{
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--text-dim);
+    margin-bottom: 14px; display:flex; align-items:center; gap:10px;
+  }
+  .section-title::after{
+    content:""; flex:1; height:1px; background: var(--surface-border);
+  }
+  .card{
+    background: var(--surface); border:1px solid var(--surface-border);
+    border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow);
+  }
+  .about p{ color: var(--text-dim); margin:0; font-size: 15px; }
+
+  /* Timeline */
+  .timeline-item{
+    padding: 16px 0; border-bottom: 1px solid var(--surface-border);
+  }
+  .timeline-item:last-child{ border-bottom:none; padding-bottom:0; }
+  .timeline-item:first-child{ padding-top:0; }
+  .ti-head{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline; }
+  .ti-title{ font-weight: 700; font-size: 15px; }
+  .ti-period{
+    font-size: 12px; color: var(--accent); white-space:nowrap; font-weight:600;
+  }
+  .ti-sub{ font-size: 13.5px; color: var(--text-dim); margin-top: 2px; }
+  .ti-desc{ margin: 8px 0 0; padding-left: 18px; color: var(--text-dim); font-size: 13.5px; }
+  .ti-desc li{ margin-top: 4px; }
+  .current-tag{
+    display:inline-block; margin-left:8px; font-size: 10px; font-weight:700;
+    color:#00131c; background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    padding: 2px 8px; border-radius: 999px; vertical-align: middle;
+  }
+
+  /* Skills */
+  .skill-group{ margin-bottom: 16px; }
+  .skill-group:last-child{ margin-bottom:0; }
+  .skill-group h3{ font-size: 13px; color: var(--text-dim); font-weight:600; margin-bottom:10px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    font-size: 13px; padding: 7px 13px; border-radius: 10px;
+    background: var(--accent-soft); border:1px solid var(--surface-border); color: var(--text);
+  }
+
+  /* Contact */
+  .contact-row{ display:flex; align-items:center; gap:10px; font-size:14px; }
+  .contact-row + .contact-row{ margin-top:10px; }
+  .contact-row svg{ width:16px; height:16px; color: var(--accent); flex-shrink:0; }
+  .contact-row a{ color: var(--text); text-decoration:none; }
+  .contact-row a:hover{ color: var(--accent); }
+
+  footer{
+    text-align:center; margin-top: 48px; color: var(--text-dim); font-size: 12.5px;
+  }
+
+  @media (max-width:480px){
+    .wrap{ padding: 40px 16px 60px; }
+    .hero h1{ font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="avatar">MA</div>
+    <h1>Muchamad Aflah</h1>
+    <div class="role">Mahasiswa Teknik Sumber Daya Air — Universitas Gadjah Mada</div>
+    <div class="location">Yogyakarta, Daerah Istimewa Yogyakarta</div>
+    <div class="badge-now"><span class="dot"></span> Sedang mengerjakan DED Jetty Muara Opak &amp; riset Irigasi Rawa</div>
+
+    <div class="socials">
+      <a class="social-btn" href="https://www.instagram.com/flah_xe" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+      <a class="social-btn" href="https://www.linkedin.com/in/muchamad-aflah-b89255294" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        LinkedIn
+      </a>
+      <a class="social-btn" href="mailto:aflahmuchamad@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+
+  <section class="about">
+    <div class="section-title">Tentang Saya</div>
+    <div class="card">
+      <p>Mahasiswa program studi Teknik Sumber Daya Air, Universitas Gadjah Mada, dengan ketertarikan pada bidang sains dan teknologi serta penerapannya di bidang sumber daya air. Aktif membantu penelitian dosen dan mengikuti pelatihan di bidang pemetaan dan sumber daya air.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Pendidikan</div>
+    <div class="card">
+      <div class="timeline-item">
+        <div class="ti-head">
+          <div class="ti-title">Universitas Gadjah Mada</div>
+          <div class="ti-period">Sejak Juli 2023</div>
+        </div>
+        <div class="ti-sub">Teknik Sumber Daya Air</div>
+      </div>
+      <div class="timeline-item">
+        <div class="ti-head">
+          <div class="ti-title">SMA Negeri 94 Jakarta</div>
+          <div class="ti-period">Jul 2020 – Mei 2023</div>
+        </div>
+        <div class="ti-sub">Ilmu Pengetahuan Alam (Saintek)</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Pengalaman Profesional</div>
+    <div class="card">
+
+      <div class="timeline-item">
+        <div class="ti-head">
+          <div class="ti-title">Asisten Tenaga Ahli Teknik Sipil Hidro<span class="current-tag">Sekarang</span></div>
+          <div class="ti-period">Sep 2026 – Sekarang</div>
+        </div>
+        <div class="ti-sub">DED Jetty Muara Opak</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="ti-head">
+          <div class="ti-title">Asisten Tenaga Ahli Teknik Sipil Hidro<span class="current-tag">Sekarang</span></div>
+          <div class="ti-period">Jul 2026 – Sekarang</div>
+        </div>
+        <div class="ti-sub">Pusat Kajian LKFT UGM — DED Jalan Lintas Selatan Bojonegoro</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="ti-head">
+          <div class="ti-title">Asisten Riset Irigasi Rawa<span class="current-tag">Sekarang</span></div>
+          <div class="ti-period">Okt 2025 – Sekarang</div>
+        </div>
+        <div class="ti-sub">Fakultas Teknik UGM</div>
+        <ul class="ti-desc">
+          <li>Analisis numerik dinamika muka air tanah pada sistem irigasi rawa dengan mempertimbangkan pengaruh pasang-surut.</li>
+          <li>Berkontribusi pada estimasi koefisien hidraulik tanah sebagai parameter pemodelan aliran bawah permukaan.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="ti-head">
+          <div class="ti-title">Asisten Tenaga Ahli Teknik Sipil Hidro</div>
+          <div class="ti-period">Jun 2025 – Des 2025</div>
+        </div>
+        <div class="ti-sub">Pusat Kajian LKFT UGM — Feasibility Study Waterway Jakarta</div>
+        <ul class="ti-desc">
+          <li>Analisis data teknis berbasis spasial untuk mendukung kajian FS Waterway Jakarta.</li>
+          <li>Survei lapangan pada segmen sungai untuk pengumpulan data morfologi, hidrometri, dan kondisi bangunan air.</li>
+          <li>Menganalisis kondisi bangunan melintang sungai, termasuk jembatan dan pintu air, sebagai dasar rekomendasi teknis.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="ti-head">
+          <div class="ti-title">Asisten Riset Flashflood</div>
+          <div class="ti-period">Feb 2025 – Mei 2025</div>
+        </div>
+        <div class="ti-sub">Fakultas Teknik UGM</div>
+        <ul class="ti-desc">
+          <li>Kurasi data dari peristiwa banjir untuk menentukan lokasi dan jenis banjir.</li>
+          <li>Analisis data yang telah dikurasi.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="ti-head">
+          <div class="ti-title">Uji Kekerasan Pipa</div>
+          <div class="ti-period">Jan 2024</div>
+        </div>
+        <div class="ti-sub">PT. Wahana Duta Jaya Rucika</div>
+        <ul class="ti-desc">
+          <li>Mengikuti uji material pipa untuk mengetahui daya tahan terhadap tekanan dan deformasi.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="ti-head">
+          <div class="ti-title">Pelatihan Sistem Perpipaan</div>
+          <div class="ti-period">Jan 2024</div>
+        </div>
+        <div class="ti-sub">PT. Wahana Duta Jaya Rucika — Rucika Institute</div>
+        <ul class="ti-desc">
+          <li>Pelatihan mengenai desain, pemasangan, dan pemeliharaan sistem perpipaan untuk distribusi air.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Keterampilan</div>
+    <div class="card">
+      <div class="skill-group">
+        <h3>Teknis</h3>
+        <div class="chips">
+          <span class="chip">AutoCAD</span>
+          <span class="chip">QGIS</span>
+          <span class="chip">Google Earth Pro</span>
+          <span class="chip">HEC-RAS / HEC-HMS</span>
+          <span class="chip">EPANET</span>
+          <span class="chip">SWMM</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Pendukung</h3>
+        <div class="chips">
+          <span class="chip">Fotografi Udara (Drone)</span>
+          <span class="chip">Dokumentasi Teknis Lapangan</span>
+          <span class="chip">Kerja Sama Tim</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Kontak</div>
+    <div class="card">
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+        <a href="mailto:aflahmuchamad@gmail.com">aflahmuchamad@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Yogyakarta, Daerah Istimewa Yogyakarta
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Muchamad Aflah</footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
