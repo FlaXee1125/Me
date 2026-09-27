@@ -10,49 +10,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0b1220;
-    --bg-alt: #0f1830;
-    --surface: rgba(255,255,255,0.06);
-    --surface-border: rgba(255,255,255,0.10);
-    --text: #eef2ff;
-    --text-dim: #a6b0cc;
-    --accent: #38bdf8;
-    --accent-2: #22d3ee;
-    --accent-soft: rgba(56,189,248,0.14);
-    --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    color-scheme: dark;
+    --bg: #0a0e26;
+    --bg-alt: #0d0a32;
+    --surface: rgba(255,255,255,0.07);
+    --surface-border: rgba(255,255,255,0.14);
+    --text: #f2f4ff;
+    --text-dim: #b7bcdb;
+    --accent: #077BED;
+    --accent-2: #8D39D0;
+    --accent-3: #ED4563;
+    --accent-deep: #161B8E;
+    --accent-soft: rgba(7,123,237,0.16);
+    --shadow: 0 10px 30px rgba(3,5,20,0.5);
     --radius: 18px;
-  }
-  @media (prefers-color-scheme: light){
-    :root:not([data-theme="dark"]){
-      --bg: #f5f7fb;
-      --bg-alt: #eef1f8;
-      --surface: #ffffff;
-      --surface-border: #e3e8f2;
-      --text: #101529;
-      --text-dim: #57607a;
-      --accent: #0284c7;
-      --accent-2: #0891b2;
-      --accent-soft: rgba(2,132,199,0.10);
-      --shadow: 0 10px 30px rgba(20,30,60,0.08);
-    }
-  }
-  :root[data-theme="light"]{
-    --bg: #f5f7fb;
-    --bg-alt: #eef1f8;
-    --surface: #ffffff;
-    --surface-border: #e3e8f2;
-    --text: #101529;
-    --text-dim: #57607a;
-    --accent: #0284c7;
-    --accent-2: #0891b2;
-    --accent-soft: rgba(2,132,199,0.10);
-    --shadow: 0 10px 30px rgba(20,30,60,0.08);
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
     background:
-      linear-gradient(180deg, rgba(6,10,20,0.86) 0%, rgba(6,10,20,0.92) 55%, rgba(6,10,20,0.97) 100%),
+      linear-gradient(180deg, rgba(22,27,142,0.55) 0%, rgba(10,10,40,0.85) 45%, rgba(6,7,22,0.96) 100%),
       url('assets/campus-bg.jpg') center 30% / cover no-repeat fixed;
     color: var(--text);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -74,11 +51,11 @@
     margin: 0 auto 20px;
     display:flex; align-items:center; justify-content:center;
     font-family:'Sora', sans-serif; font-weight:800; font-size: 34px;
-    color:#00131c;
+    color:#ffffff;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
     box-shadow: var(--shadow);
   }
-  .hero h1{ font-size: 28px; font-weight: 800; letter-spacing: -0.01em; }
+  .hero h1{ font-size: 28px; font-weight: 800; letter-spacing: -0.01em; color: var(--text); }
   .hero .role{
     color: var(--accent);
     font-weight: 600; font-size: 15px; margin-top: 6px;
@@ -94,7 +71,7 @@
   }
   .dot{
     width:8px;height:8px;border-radius:50%;
-    background: #34d399; box-shadow: 0 0 0 3px rgba(52,211,153,0.25);
+    background: var(--accent-3); box-shadow: 0 0 0 3px rgba(237,69,99,0.25);
     animation: pulse 2s infinite;
   }
   @keyframes pulse{
@@ -152,6 +129,20 @@
   .now-item .ni-sub{ font-size: 12px; color: var(--text-dim); margin-top: 2px; }
   .now-item .ni-since{ font-size: 11px; color: var(--accent); white-space:nowrap; font-weight:600; margin-top:2px; }
 
+  /* Scroll reveal */
+  .reveal{
+    opacity: 0;
+    transform: translateY(36px) scale(0.94);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.in-view{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
   /* Section cards */
   section{ margin-top: 34px; }
   .section-title{
@@ -186,7 +177,7 @@
   .ti-desc li{ margin-top: 4px; }
   .current-tag{
     display:inline-block; margin-left:8px; font-size: 10px; font-weight:700;
-    color:#00131c; background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color:#ffffff; background: linear-gradient(135deg, var(--accent), var(--accent-2));
     padding: 2px 8px; border-radius: 999px; vertical-align: middle;
   }
 
@@ -241,7 +232,7 @@
       </a>
     </div>
 
-    <div class="now-card">
+    <div class="now-card reveal">
       <div class="now-title"><span class="dot"></span> Sedang Dikerjakan</div>
       <div class="now-item">
         <div>
@@ -260,14 +251,14 @@
     </div>
   </div>
 
-  <section class="about">
+  <section class="about reveal">
     <div class="section-title">Tentang Saya</div>
     <div class="card">
       <p>Mahasiswa program studi Teknik Sumber Daya Air, Universitas Gadjah Mada, dengan ketertarikan pada bidang sains dan teknologi serta penerapannya di bidang sumber daya air. Aktif membantu penelitian dosen dan mengikuti pelatihan di bidang pemetaan dan sumber daya air.</p>
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="section-title">Pendidikan</div>
     <div class="card">
       <div class="timeline-item">
@@ -287,7 +278,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="section-title">Pengalaman Profesional</div>
     <div class="card">
 
@@ -369,7 +360,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="section-title">Keterampilan</div>
     <div class="card">
       <div class="skill-group">
@@ -394,7 +385,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="section-title">Kontak</div>
     <div class="card">
       <div class="contact-row">
@@ -413,6 +404,21 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach((el) => observer.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('in-view'));
+  }
 </script>
 </body>
 </html>
