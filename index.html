@@ -44,12 +44,10 @@
   }
   @media (max-width: 640px){
     body{
-      /* Foto lanskap ini di layar sempit & tinggi akan sangat di-zoom kalau
-         pakai 'cover' (hanya menara tengah yang kelihatan). 'contain' menjaga
-         seluruh lebar gedung tetap terlihat, ruang kosong diisi warna gelap
-         yang sama dengan overlay agar tetap menyatu. */
-      background-position: center, center top;
-      background-size: cover, contain;
+      /* Full-bleed: foto tetap zoom ke gedung tengah, tanpa bar gelap
+         di atas/bawah seperti versi 'contain'. */
+      background-position: center, center 22%;
+      background-size: cover, cover;
       background-attachment: scroll, scroll;
     }
   }
