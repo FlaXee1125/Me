@@ -28,14 +28,30 @@
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:
+    background-color: #05071c;
+    background-image:
       linear-gradient(180deg, rgba(22,27,142,0.55) 0%, rgba(10,10,40,0.85) 45%, rgba(6,7,22,0.96) 100%),
-      url('assets/campus-bg.jpg') center 30% / cover no-repeat fixed;
+      url('assets/campus-bg.jpg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center 30%;
+    background-size: cover, cover;
+    background-attachment: fixed, fixed;
     color: var(--text);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.55;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+  }
+  @media (max-width: 640px){
+    body{
+      /* Foto lanskap ini di layar sempit & tinggi akan sangat di-zoom kalau
+         pakai 'cover' (hanya menara tengah yang kelihatan). 'contain' menjaga
+         seluruh lebar gedung tetap terlihat, ruang kosong diisi warna gelap
+         yang sama dengan overlay agar tetap menyatu. */
+      background-position: center, center top;
+      background-size: cover, contain;
+      background-attachment: scroll, scroll;
+    }
   }
   .wrap{
     max-width: 720px;
